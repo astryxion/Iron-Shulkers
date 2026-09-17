@@ -20,18 +20,18 @@ public class IronShulkerBoxesBlockTags extends BlockTagsProvider {
     var shulkerBoxes = this.tag(BlockTags.SHULKER_BOXES);
 
     shulkerBoxes.add(
-        IronShulkerBoxesBlocks.IRON_SHULKER_BOX.get(),
-        IronShulkerBoxesBlocks.GOLD_SHULKER_BOX.get(),
-        IronShulkerBoxesBlocks.DIAMOND_SHULKER_BOX.get(),
-        IronShulkerBoxesBlocks.COPPER_SHULKER_BOX.get(),
-        IronShulkerBoxesBlocks.CRYSTAL_SHULKER_BOX.get(),
-        IronShulkerBoxesBlocks.OBSIDIAN_SHULKER_BOX.get());
+        IronShulkerBoxesBlocks.IRON_SHULKER_BOX.getKey(),
+        IronShulkerBoxesBlocks.GOLD_SHULKER_BOX.getKey(),
+        IronShulkerBoxesBlocks.DIAMOND_SHULKER_BOX.getKey(),
+        IronShulkerBoxesBlocks.COPPER_SHULKER_BOX.getKey(),
+        IronShulkerBoxesBlocks.CRYSTAL_SHULKER_BOX.getKey(),
+        IronShulkerBoxesBlocks.OBSIDIAN_SHULKER_BOX.getKey());
 
-    IronShulkerBoxesBlocks.IRON_SHULKER_BOXES.forEach((dyeColor, block) -> shulkerBoxes.add(block.get()));
-    IronShulkerBoxesBlocks.GOLD_SHULKER_BOXES.forEach((dyeColor, block) -> shulkerBoxes.add(block.get()));
-    IronShulkerBoxesBlocks.DIAMOND_SHULKER_BOXES.forEach((dyeColor, block) -> shulkerBoxes.add(block.get()));
-    IronShulkerBoxesBlocks.COPPER_SHULKER_BOXES.forEach((dyeColor, block) -> shulkerBoxes.add(block.get()));
-    IronShulkerBoxesBlocks.CRYSTAL_SHULKER_BOXES.forEach((dyeColor, block) -> shulkerBoxes.add(block.get()));
-    IronShulkerBoxesBlocks.OBSIDIAN_SHULKER_BOXES.forEach((dyeColor, block) -> shulkerBoxes.add(block.get()));
+    IronShulkerBoxesBlocks.IRON_SHULKER_BOXES.forEach((dyeColor, block) -> shulkerBoxes.add(block.getKey()));
+    IronShulkerBoxesBlocks.GOLD_SHULKER_BOXES.forEach((dyeColor, block) -> shulkerBoxes.add(block.getKey()));
+    IronShulkerBoxesBlocks.DIAMOND_SHULKER_BOXES.forEach((dyeColor, block) -> shulkerBoxes.add(block.getKey()));
+    IronShulkerBoxesBlocks.COPPER_SHULKER_BOXES.forEach((dyeColor, block) -> shulkerBoxes.add(block.getKey()));
+    IronShulkerBoxesBlocks.CRYSTAL_SHULKER_BOXES.forEach((dyeColor, block) -> shulkerBoxes.add(block.getKey()));
+    IronShulkerBoxesBlocks.OBSIDIAN_SHULKER_BOXES.forEach((dyeColor, block) -> shulkerBoxes.add(block.getKey()));
   }
 }

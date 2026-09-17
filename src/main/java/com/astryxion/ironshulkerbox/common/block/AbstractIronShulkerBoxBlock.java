@@ -47,6 +47,7 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -144,7 +145,7 @@ public abstract class AbstractIronShulkerBoxBlock extends BaseEntityBlock {
     if (pBlockEntity.getAnimationStatus() != AbstractIronShulkerBoxBlockEntity.AnimationStatus.CLOSED) {
       return true;
     } else {
-      AABB aabb = Shulker.getProgressDeltaAabb(1.0F, pState.getValue(FACING), 0.0F, 0.5F, pPos.getBottomCenter()).deflate(1.0E-6);
+      AABB aabb = Shulker.getProgressDeltaAabb(1.0F, pState.getValue(FACING), 0.0F, 0.5F, Vec3.atBottomCenterOf(pPos)).deflate(1.0E-6);
       return pLevel.noCollision(aabb);
     }
   }

@@ -102,24 +102,7 @@ public enum IronShulkerBoxesTypes implements StringRepresentable {
         case CRYSTAL -> IronShulkerBoxesBlocks.CRYSTAL_SHULKER_BOXES.get(color).get();
         case COPPER -> IronShulkerBoxesBlocks.COPPER_SHULKER_BOXES.get(color).get();
         case OBSIDIAN -> IronShulkerBoxesBlocks.OBSIDIAN_SHULKER_BOXES.get(color).get();
-        default -> switch (color) {
-          case WHITE -> Blocks.WHITE_SHULKER_BOX;
-          case ORANGE -> Blocks.ORANGE_SHULKER_BOX;
-          case MAGENTA -> Blocks.MAGENTA_SHULKER_BOX;
-          case LIGHT_BLUE -> Blocks.LIGHT_BLUE_SHULKER_BOX;
-          case YELLOW -> Blocks.YELLOW_SHULKER_BOX;
-          case LIME -> Blocks.LIME_SHULKER_BOX;
-          case PINK -> Blocks.PINK_SHULKER_BOX;
-          case GRAY -> Blocks.GRAY_SHULKER_BOX;
-          case LIGHT_GRAY -> Blocks.LIGHT_GRAY_SHULKER_BOX;
-          case CYAN -> Blocks.CYAN_SHULKER_BOX;
-          case PURPLE -> Blocks.PURPLE_SHULKER_BOX;
-          case BLUE -> Blocks.BLUE_SHULKER_BOX;
-          case BROWN -> Blocks.BROWN_SHULKER_BOX;
-          case GREEN -> Blocks.GREEN_SHULKER_BOX;
-          case RED -> Blocks.RED_SHULKER_BOX;
-          case BLACK -> Blocks.BLACK_SHULKER_BOX;
-        };
+        default -> Blocks.DYED_SHULKER_BOX.pick(color);
       };
     }
   }

@@ -241,24 +241,7 @@ public class IronShulkerBoxesRecipeProvider extends RecipeProvider {
   }
 
   private ItemLike getShulkerBoxItem(DyeColor color) {
-    return switch (color) {
-      case WHITE -> Items.WHITE_SHULKER_BOX;
-      case ORANGE -> Items.ORANGE_SHULKER_BOX;
-      case MAGENTA -> Items.MAGENTA_SHULKER_BOX;
-      case LIGHT_BLUE -> Items.LIGHT_BLUE_SHULKER_BOX;
-      case YELLOW -> Items.YELLOW_SHULKER_BOX;
-      case LIME -> Items.LIME_SHULKER_BOX;
-      case PINK -> Items.PINK_SHULKER_BOX;
-      case GRAY -> Items.GRAY_SHULKER_BOX;
-      case LIGHT_GRAY -> Items.LIGHT_GRAY_SHULKER_BOX;
-      case CYAN -> Items.CYAN_SHULKER_BOX;
-      case PURPLE -> Items.PURPLE_SHULKER_BOX;
-      case BLUE -> Items.BLUE_SHULKER_BOX;
-      case BROWN -> Items.BROWN_SHULKER_BOX;
-      case GREEN -> Items.GREEN_SHULKER_BOX;
-      case RED -> Items.RED_SHULKER_BOX;
-      case BLACK -> Items.BLACK_SHULKER_BOX;
-    };
+    return Items.DYED_SHULKER_BOX.pick(color);
   }
 
   public static final class Runner extends RecipeProvider.Runner {
