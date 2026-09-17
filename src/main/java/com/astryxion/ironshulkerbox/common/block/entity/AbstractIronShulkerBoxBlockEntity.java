@@ -119,7 +119,7 @@ public abstract class AbstractIronShulkerBoxBlockEntity extends RandomizableCont
   private void moveCollidedEntities(Level pLevel, BlockPos pPos, BlockState pState) {
     if (pState.getBlock() instanceof AbstractIronShulkerBoxBlock) {
       Direction direction = pState.getValue(AbstractIronShulkerBoxBlock.FACING);
-      AABB aabb = Shulker.getProgressDeltaAabb(1.0F, direction, this.progressOld, this.progress, pPos.getBottomCenter());
+      AABB aabb = Shulker.getProgressDeltaAabb(1.0F, direction, this.progressOld, this.progress, Vec3.atBottomCenterOf(pPos));
       List<Entity> list = pLevel.getEntities(null, aabb);
 
       if (!list.isEmpty()) {

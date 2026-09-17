@@ -50,8 +50,11 @@ public class IronShulkerBoxesClientRegistration implements ClientModInitializer 
     if (blockEntity != null) {
       if (blockEntity instanceof ICrystalShulkerBox crystalShulkerBox) {
         crystalShulkerBox.receiveMessageFromServer(msg.topItemStacks());
-
-        Minecraft.getInstance().levelRenderer.blockChanged(null, msg.blockPos(), null, null, 0);
+        var mc = Minecraft.getInstance();
+        if (mc.level != null) {
+          var state = mc.level.getBlockState(msg.blockPos());
+          mc.level.sendBlockUpdated(msg.blockPos(), state, state, 3);
+        }
       }
     }
   }
