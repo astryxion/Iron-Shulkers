@@ -38,7 +38,7 @@ repositories {
 }
 
 base {
-    archivesName = mod_id
+    archivesName = archives_base_name
 }
 
 // Mojang ships Java 21 to end users in 1.21.11, so mods should target Java 21.
@@ -158,6 +158,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             mod_license            : mod_license,
             mod_version            : mod_version,
             mod_authors            : mod_authors,
+            mod_credits            : mod_credits,
             mod_description        : mod_description,
             mod_issue_tracker      : mod_issue_tracker,
             mod_display_url        : mod_display_url,

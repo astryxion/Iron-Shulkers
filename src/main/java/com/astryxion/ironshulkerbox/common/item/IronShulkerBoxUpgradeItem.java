@@ -96,7 +96,7 @@ public class IronShulkerBoxUpgradeItem extends Item {
           return InteractionResult.PASS;
         }
 
-        shulkerBoxContents = shulkerBox.getItems();
+        shulkerBoxContents = copyContents(shulkerBox.getItems());
         shulkerBoxFacing = shulkerBoxState.getValue(AbstractIronShulkerBoxBlock.FACING);
         customName = shulkerBox.getCustomName();
         shulkerBoxColor = shulkerBox.getColor();
@@ -118,7 +118,7 @@ public class IronShulkerBoxUpgradeItem extends Item {
         shulkerBoxContents = NonNullList.withSize(shulkerBox.getContainerSize(), ItemStack.EMPTY);
 
         for (int slot = 0; slot < shulkerBoxContents.size(); slot++) {
-          shulkerBoxContents.set(slot, shulkerBox.getItem(slot));
+          shulkerBoxContents.set(slot, shulkerBox.getItem(slot).copy());
         }
 
         shulkerBoxFacing = shulkerBoxState.getValue(ShulkerBoxBlock.FACING);
@@ -160,6 +160,15 @@ public class IronShulkerBoxUpgradeItem extends Item {
     }
 
     return InteractionResult.SUCCESS;
+  }
+
+  private static NonNullList<ItemStack> copyContents(NonNullList<ItemStack> source) {
+    NonNullList<ItemStack> copy = NonNullList.withSize(source.size(), ItemStack.EMPTY);
+    for (int slot = 0; slot < source.size(); slot++) {
+      ItemStack stack = source.get(slot);
+      copy.set(slot, stack.isEmpty() ? ItemStack.EMPTY : stack.copy());
+    }
+    return copy;
   }
 
   @Override
