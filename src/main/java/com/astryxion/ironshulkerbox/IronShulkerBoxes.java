@@ -3,10 +3,7 @@ package com.astryxion.ironshulkerbox;
 import com.astryxion.ironshulkerbox.common.block.AbstractIronShulkerBoxBlock;
 import com.astryxion.ironshulkerbox.common.block.IronShulkerBoxesTypes;
 import com.astryxion.ironshulkerbox.common.creativetabs.IronShulkerBoxesCreativeTabs;
-import com.astryxion.ironshulkerbox.common.data.IronShulkerBoxesBlockTags;
 import com.astryxion.ironshulkerbox.common.data.IronShulkerBoxesLanguageProvider;
-import com.astryxion.ironshulkerbox.common.data.IronShulkerBoxesRecipeProvider;
-import com.astryxion.ironshulkerbox.common.data.loot.IronShulkerBoxesLootTableProvider;
 import com.astryxion.ironshulkerbox.common.network.TopStacksSyncPacket;
 import com.astryxion.ironshulkerbox.common.registraton.IronShulkerBoxesBlockEntityTypes;
 import com.astryxion.ironshulkerbox.common.registraton.IronShulkerBoxesBlocks;
@@ -147,11 +144,6 @@ public class IronShulkerBoxes {
   }
 
   private static void addServerDataProviders(GatherDataEvent event) {
-    PackOutput packOutput = event.getGenerator().getPackOutput();
-    CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
-    event.addProvider(new IronShulkerBoxesLootTableProvider(packOutput, lookupProvider));
-    event.addProvider(new IronShulkerBoxesRecipeProvider.Runner(packOutput, lookupProvider));
-    event.addProvider(new IronShulkerBoxesBlockTags(packOutput, lookupProvider));
   }
 
   public void setupPackets(RegisterPayloadHandlersEvent event) {

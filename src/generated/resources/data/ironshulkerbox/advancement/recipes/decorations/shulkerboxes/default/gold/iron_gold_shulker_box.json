@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ironshulkerbox:shulkerboxes/default/gold/iron_gold_shulker_box"
+        "recipes": "ironshulkerbox:shulkerboxes/default/gold/iron_gold_shulker_box"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

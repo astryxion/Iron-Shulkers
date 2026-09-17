@@ -122,7 +122,7 @@ public abstract class AbstractIronShulkerBoxBlockEntity extends RandomizableCont
 
       if (!list.isEmpty()) {
         for (Entity entity : list) {
-          if (entity.getPistonPushReaction() != PushReaction.IGNORE) {
+          if (entity.getPistonPushReaction() != PushReaction.IGNORE_ENTITY) {
             entity.move(MoverType.SHULKER_BOX, new Vec3((aabb.getXsize() + 0.01D) * (double) direction.getStepX(), (aabb.getYsize() + 0.01D) * (double) direction.getStepY(), (aabb.getZsize() + 0.01D) * (double) direction.getStepZ()));
           }
         }

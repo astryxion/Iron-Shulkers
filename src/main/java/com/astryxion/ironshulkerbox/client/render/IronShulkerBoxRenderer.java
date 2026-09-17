@@ -163,7 +163,7 @@ public class IronShulkerBoxRenderer implements BlockEntityRenderer<AbstractIronS
     poseStack.pushPose();
     Vector3f center = modelItem.getCenter();
     poseStack.translate(center.x(), center.y(), center.z());
-    poseStack.mulPose(Axis.YP.rotationDegrees(rotation));
+    poseStack.rotateDegrees(Axis.YP, rotation);
     float scale = modelItem.getSizeScaled();
     poseStack.scale(scale, scale, scale);
     itemState.submit(poseStack, collector, light, OverlayTexture.NO_OVERLAY, 0);
