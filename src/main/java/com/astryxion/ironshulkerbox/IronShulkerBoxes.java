@@ -10,6 +10,8 @@ import com.astryxion.ironshulkerbox.common.data.loot.IronShulkerBoxesBlockLoot;
 import com.astryxion.ironshulkerbox.common.network.TopStacksSyncPacket;
 import com.astryxion.ironshulkerbox.common.registraton.IronShulkerBoxesBlocks;
 import com.astryxion.ironshulkerbox.common.registraton.IronShulkerBoxesItems;
+import com.astryxion.ironshulkerbox.common.registraton.IronShulkerBoxesBlockEntityTypes;
+import com.astryxion.ironshulkerbox.common.registraton.IronShulkerBoxesRecipes;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.core.dispenser.ShulkerBoxDispenseBehavior;
 import net.minecraft.stats.Stats;
@@ -27,6 +29,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.fabricmc.fabric.api.recipe.v1.sync.RecipeSynchronization;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
 import net.fabricmc.fabric.impl.transfer.item.ItemContainerContentsStorage;
 
@@ -79,6 +82,9 @@ public class IronShulkerBoxes implements ModInitializer, DataGeneratorEntrypoint
     var ignoredBlocks = IronShulkerBoxesBlocks.IRON_SHULKER_BOX;
     var ignoredItems = IronShulkerBoxesItems.UPGRADES;
     var ignoredTab = IronShulkerBoxesCreativeTabs.IRON_SHULKER_BOX_TAB_KEY;
+    var ignoredBlockEntities = IronShulkerBoxesBlockEntityTypes.IRON_SHULKER_BOX;
+    var ignoredRecipes = IronShulkerBoxesRecipes.SHULKER_BOX_CRAFTING;
+    RecipeSynchronization.synchronizeRecipeSerializer(IronShulkerBoxesRecipes.SHULKER_BOX_CRAFTING);
 
     registerItemStorages();
 
