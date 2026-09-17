@@ -1,6 +1,7 @@
 package com.astryxion.ironshulkerbox.common.registraton;
 
 import com.astryxion.ironshulkerbox.IronShulkerBoxes;
+import com.astryxion.ironshulkerbox.common.recipes.IronShulkerBoxCraftingRecipe;
 import com.astryxion.ironshulkerbox.common.recipes.IronShulkerBoxesColoringRecipe;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -13,4 +14,9 @@ public class IronShulkerBoxesRecipes {
       BuiltInRegistries.RECIPE_SERIALIZER,
       Identifier.fromNamespaceAndPath(IronShulkerBoxes.MODID, "shulker_box_coloring"),
       new RecipeSerializer<>(IronShulkerBoxesColoringRecipe.MAP_CODEC, IronShulkerBoxesColoringRecipe.STREAM_CODEC));
+
+  public static final RecipeSerializer<IronShulkerBoxCraftingRecipe> SHULKER_BOX_CRAFTING = Registry.register(
+      BuiltInRegistries.RECIPE_SERIALIZER,
+      Identifier.fromNamespaceAndPath(IronShulkerBoxes.MODID, "shulker_box_crafting"),
+      new RecipeSerializer<>(IronShulkerBoxCraftingRecipe.CODEC, IronShulkerBoxCraftingRecipe.STREAM_CODEC));
 }
