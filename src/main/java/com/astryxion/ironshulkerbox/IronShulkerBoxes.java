@@ -5,7 +5,6 @@ import com.astryxion.ironshulkerbox.common.block.IronShulkerBoxesTypes;
 import com.astryxion.ironshulkerbox.common.creativetabs.IronShulkerBoxesCreativeTabs;
 import com.astryxion.ironshulkerbox.common.data.IronShulkerBoxesBlockTags;
 import com.astryxion.ironshulkerbox.common.data.IronShulkerBoxesLanguageProvider;
-import com.astryxion.ironshulkerbox.common.data.IronShulkerBoxesRecipeProvider;
 import com.astryxion.ironshulkerbox.common.data.loot.IronShulkerBoxesBlockLoot;
 import com.astryxion.ironshulkerbox.common.network.TopStacksSyncPacket;
 import com.astryxion.ironshulkerbox.common.registraton.IronShulkerBoxesBlocks;
@@ -141,7 +140,6 @@ public class IronShulkerBoxes implements ModInitializer, DataGeneratorEntrypoint
     FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
     pack.addProvider(IronShulkerBoxesLanguageProvider::new);
     pack.addProvider(IronShulkerBoxesBlockLoot::new);
-    pack.addProvider(IronShulkerBoxesRecipeProvider.Runner::new);
     pack.addProvider(IronShulkerBoxesBlockTags::new);
   }
 }

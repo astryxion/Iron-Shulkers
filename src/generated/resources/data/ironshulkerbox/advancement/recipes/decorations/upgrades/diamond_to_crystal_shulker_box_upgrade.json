@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ironshulkerbox:upgrades/diamond_to_crystal_shulker_box_upgrade"
+        "recipes": "ironshulkerbox:upgrades/diamond_to_crystal_shulker_box_upgrade"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

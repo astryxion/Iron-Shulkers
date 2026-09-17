@@ -61,8 +61,8 @@ public class IronShulkerBoxesBlocks {
         .dynamicShape()
         .noOcclusion()
         .isSuffocating(positionPredicate)
-        .isViewBlocking(positionPredicate)
-        .pushReaction(PushReaction.DESTROY);
+        .isViewBlocking((state, level, pos, aabb) -> positionPredicate.test(state, level, pos))
+        .pushReaction(PushReaction.POPPED);
   }
 
   private static BlockBehaviour.Properties reinforcedProperties(ResourceKey<Block> blockKey) {
@@ -73,8 +73,8 @@ public class IronShulkerBoxesBlocks {
         .dynamicShape()
         .noOcclusion()
         .isSuffocating(positionPredicate)
-        .isViewBlocking(positionPredicate)
-        .pushReaction(PushReaction.DESTROY);
+        .isViewBlocking((state, level, pos, aabb) -> positionPredicate.test(state, level, pos))
+        .pushReaction(PushReaction.POPPED);
   }
 
   private static Identifier id(String name) {
