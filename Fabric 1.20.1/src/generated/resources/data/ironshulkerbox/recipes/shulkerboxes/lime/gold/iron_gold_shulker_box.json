@@ -1,0 +1,22 @@
+{
+  "type": "ironshulkerbox:shulker_box_crafting",
+  "category": "misc",
+  "group": "ironshulkerbox:lime_shulker_box",
+  "key": {
+    "M": {
+      "tag": "c:gold_ingots"
+    },
+    "S": {
+      "item": "ironshulkerbox:iron_shulker_box_lime"
+    }
+  },
+  "pattern": [
+    "MMM",
+    "MSM",
+    "MMM"
+  ],
+  "result": {
+    "item": "ironshulkerbox:gold_shulker_box_lime"
+  },
+  "show_notification": true
+}
