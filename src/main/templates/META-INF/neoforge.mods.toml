@@ -8,8 +8,10 @@ license="${mod_license}"
     version="${mod_version}"
     displayName="${mod_name}"
     authors="${mod_authors}"
+    credits="${mod_credits}"
     description='''${mod_description}'''
     displayURL="${mod_display_url}"
+    logoFile="logo.png"
     displayTest="MATCH_VERSION"
 
 [[dependencies.${mod_id}]]
