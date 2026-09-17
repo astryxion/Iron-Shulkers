@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "ironshulkerbox:shulker_box_crafting",
   "category": "misc",
   "group": "ironshulkerbox:red_shulker_box",
   "key": {
