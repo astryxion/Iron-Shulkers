@@ -1,5 +1,6 @@
 package com.progwml6.ironshulkerbox.common.data;
 
+import com.google.gson.JsonObject;
 import com.progwml6.ironshulkerbox.IronShulkerBoxes;
 import com.progwml6.ironshulkerbox.common.item.IronShulkerBoxesUpgradeType;
 import com.progwml6.ironshulkerbox.common.registraton.IronShulkerBoxesBlocks;
@@ -17,6 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.tags.TagKey;
@@ -38,12 +40,43 @@ public class IronShulkerBoxesRecipeProvider extends FabricRecipeProvider {
 
   @Override
   public void buildRecipes(Consumer<FinishedRecipe> output) {
-    this.addDefaultShulkerBoxRecipes(output);
-    this.addColoredShulkerBoxRecipes(output);
+    Consumer<FinishedRecipe> shulkerOutput = preserveShulkerContents(output);
+
+    this.addDefaultShulkerBoxRecipes(shulkerOutput);
+    this.addColoredShulkerBoxRecipes(shulkerOutput);
 
     this.addUpgradesRecipes(output);
 
     SpecialRecipeBuilder.special(IronShulkerBoxesRecipes.SHULKER_BOX_COLORING).save(output, IronShulkerBoxes.MOD_ID + ":shulker_box_coloring");
+  }
+
+  private static Consumer<FinishedRecipe> preserveShulkerContents(Consumer<FinishedRecipe> output) {
+    return recipe -> output.accept(new FinishedRecipe() {
+      @Override
+      public void serializeRecipeData(JsonObject json) {
+        recipe.serializeRecipeData(json);
+      }
+
+      @Override
+      public ResourceLocation getId() {
+        return recipe.getId();
+      }
+
+      @Override
+      public RecipeSerializer<?> getType() {
+        return IronShulkerBoxesRecipes.SHULKER_BOX_CRAFTING;
+      }
+
+      @Override
+      public JsonObject serializeAdvancement() {
+        return recipe.serializeAdvancement();
+      }
+
+      @Override
+      public ResourceLocation getAdvancementId() {
+        return recipe.getAdvancementId();
+      }
+    });
   }
 
   private void addDefaultShulkerBoxRecipes(Consumer<FinishedRecipe> output) {

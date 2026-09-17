@@ -13,8 +13,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
-import java.util.stream.Stream;
-
 public class IronShulkerBoxesBlockEntityTypes {
 
   public static BlockEntityType<IronShulkerBoxBlockEntity> IRON_SHULKER_BOX;
@@ -25,15 +23,15 @@ public class IronShulkerBoxesBlockEntityTypes {
   public static BlockEntityType<ObsidianShulkerBoxBlockEntity> OBSIDIAN_SHULKER_BOX;
 
   public static void register() {
-    IRON_SHULKER_BOX = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, IronShulkerBoxes.id("iron_shulker_box"), typeOf(IronShulkerBoxBlockEntity::new, IronShulkerBoxBlockEntity.blocksForType()));
-    GOLD_SHULKER_BOX = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, IronShulkerBoxes.id("gold_shulker_box"), typeOf(GoldShulkerBoxBlockEntity::new, GoldShulkerBoxBlockEntity.blocksForType()));
-    DIAMOND_SHULKER_BOX = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, IronShulkerBoxes.id("diamond_shulker_box"), typeOf(DiamondShulkerBoxBlockEntity::new, DiamondShulkerBoxBlockEntity.blocksForType()));
-    COPPER_SHULKER_BOX = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, IronShulkerBoxes.id("copper_shulker_box"), typeOf(CopperShulkerBoxBlockEntity::new, CopperShulkerBoxBlockEntity.blocksForType()));
-    CRYSTAL_SHULKER_BOX = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, IronShulkerBoxes.id("crystal_shulker_box"), typeOf(CrystalShulkerBoxBlockEntity::new, CrystalShulkerBoxBlockEntity.blocksForType()));
-    OBSIDIAN_SHULKER_BOX = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, IronShulkerBoxes.id("obsidian_shulker_box"), typeOf(ObsidianShulkerBoxBlockEntity::new, ObsidianShulkerBoxBlockEntity.blocksForType()));
+    IRON_SHULKER_BOX = register("iron_shulker_box", IronShulkerBoxBlockEntity::new, IronShulkerBoxBlockEntity.blocksForType());
+    GOLD_SHULKER_BOX = register("gold_shulker_box", GoldShulkerBoxBlockEntity::new, GoldShulkerBoxBlockEntity.blocksForType());
+    DIAMOND_SHULKER_BOX = register("diamond_shulker_box", DiamondShulkerBoxBlockEntity::new, DiamondShulkerBoxBlockEntity.blocksForType());
+    COPPER_SHULKER_BOX = register("copper_shulker_box", CopperShulkerBoxBlockEntity::new, CopperShulkerBoxBlockEntity.blocksForType());
+    CRYSTAL_SHULKER_BOX = register("crystal_shulker_box", CrystalShulkerBoxBlockEntity::new, CrystalShulkerBoxBlockEntity.blocksForType());
+    OBSIDIAN_SHULKER_BOX = register("obsidian_shulker_box", ObsidianShulkerBoxBlockEntity::new, ObsidianShulkerBoxBlockEntity.blocksForType());
   }
 
-  private static <T extends BlockEntity> BlockEntityType<T> typeOf(BlockEntityType.BlockEntitySupplier<T> entity, Block[] blocks) {
-    return BlockEntityType.Builder.of(entity, blocks).build(null);
+  private static <T extends BlockEntity> BlockEntityType<T> register(String name, BlockEntityType.BlockEntitySupplier<T> entity, Block[] blocks) {
+    return Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, IronShulkerBoxes.id(name), BlockEntityType.Builder.of(entity, blocks).build(null));
   }
 }
