@@ -3,9 +3,16 @@
 	"id": "ironshulkerbox",
 	"version": "${version}",
 	"name": "Iron Shulker Boxes",
-	"description": "Iron Shulker Boxes for Fabric.",
-	"authors": ["progwml6"],
-	"license": "MIT",
+	"description": "New Shulker Boxes with larger sizes, with in-place upgrade items.",
+	"authors": ["Astryxion"],
+	"contributors": ["ProgWML6"],
+	"contact": {
+		"homepage": "https://github.com/astryxion/Iron-Shulkers",
+		"sources": "https://github.com/astryxion/Iron-Shulkers",
+		"issues": "https://github.com/astryxion/Iron-Shulkers/issues"
+	},
+	"license": "GNU General Public License v3.0",
+	"icon": "assets/ironshulkerbox/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -26,7 +33,8 @@
 		"fabric-api": "*"
 	},
 	"suggests": {
-		"jei": "*"
+		"jei": "*",
+		"modmenu": "*"
 	},
 	"custom": {
 		"jei:plugins": [

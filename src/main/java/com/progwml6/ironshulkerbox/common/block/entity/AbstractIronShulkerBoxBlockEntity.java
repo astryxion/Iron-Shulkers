@@ -235,11 +235,12 @@ public abstract class AbstractIronShulkerBoxBlockEntity extends RandomizableCont
 
   @Override
   public void setItems(NonNullList<ItemStack> itemsIn) {
-    this.itemStacks = NonNullList.withSize(this.getShulkerBoxType().size, ItemStack.EMPTY);
+    this.itemStacks = NonNullList.withSize(this.shulkerBoxType.size, ItemStack.EMPTY);
 
     for (int i = 0; i < itemsIn.size(); i++) {
       if (i < this.itemStacks.size()) {
-        this.getItems().set(i, itemsIn.get(i));
+        ItemStack stack = itemsIn.get(i);
+        this.itemStacks.set(i, stack.isEmpty() ? ItemStack.EMPTY : stack.copy());
       }
     }
   }
@@ -279,17 +280,7 @@ public abstract class AbstractIronShulkerBoxBlockEntity extends RandomizableCont
   }
 
   public IronShulkerBoxesTypes getShulkerBoxType() {
-    IronShulkerBoxesTypes type = IronShulkerBoxesTypes.IRON;
-
-    if (this.hasLevel()) {
-      IronShulkerBoxesTypes typeNew = AbstractIronShulkerBoxBlock.getTypeFromBlock(this.getBlockState().getBlock());
-
-      if (typeNew != null) {
-        type = typeNew;
-      }
-    }
-
-    return type;
+    return this.shulkerBoxType;
   }
 
   public abstract Block getBlockToUse();
